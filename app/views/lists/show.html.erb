@@ -1,0 +1,55 @@
+<div class="navbar-lewagon d-flex justify-content-space-between align-items-center bg-dark">
+  <h1 class="ms-3 p-2 fs-2 text-light"><%= @list.name %> List</h1>
+  <%= link_to "All lists", lists_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
+</div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.image_url %>);">
+  <div class="container d-flex justify-content-center">
+    <h1 class="fs-1 font-monospace"><%= @list.name %>!</h1>
+  </div>
+</div>
+<div class="container d-flex justify-content-evenly">
+  <div class="card mb-3">
+    <div class="card-body bg-dark">
+      <h2 class="card-title mb-4 text-light"><%= @list.name %></h2>
+        <% @list.bookmarks.each do |bookmark| %>
+          <div class="bg-light mb-3 p-2">
+            <div class="d-flex inline align-items-center p-2 mb-3">
+              <%= image_tag("#{bookmark.movie.poster_url}", size: "140x200") %>
+              <h3 class="card-text ms-5">Title: <%= bookmark.movie.title %></h3>
+            </div>
+            <p class="card-text">Overview: <%= bookmark.movie.overview %></p>
+            <p class="card-text">Rating: <%= bookmark.movie.rating %> ⭐️</p>
+            <% if bookmark.comment != "" %>
+                <p class="card-text mb-3"><i class="fa-solid fa-quote-left"> </i> <%= bookmark.comment %> <i class="fa-sharp fa-solid fa-quote-right"></i></p>
+            <% else %>
+                <p></p>
+            <% end %>
+            <div class="d-flex justify-content-end">
+              <%= link_to "Delete bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light mt-3 p-2 ms-1" %></h6>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-10 col-sm-6">
+        <h1 class="border-bottom p-3">Add the name of<strong> your</strong> Bookmark</h1>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.submit %>
+         <% end %>
+        <div>
+          <p><%= link_to "Back to the top", list_path(@list), class: "btn btn-dark mt-5 text-white"%></p>
+        </div>
+      </div>
+    </div >
+  </div>
+</div>
+<div class="container d-flex justify-content-end mb-5">
+  <%= link_to "Back to all lists", lists_path, class: "btn btn-dark text-light mt-3 p-2 ms-1" %>
+  <%# <%= link_to "Delete bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light mt-3 p-2 ms-1" %>
+</div>
