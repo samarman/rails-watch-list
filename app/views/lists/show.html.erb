@@ -2,7 +2,7 @@
   <h1 class="ms-3 p-2 fs-2 text-light"><%= @list.name %> List</h1>
   <%= link_to "All lists", lists_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
 </div>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.image_url %>);">
+<div class="banner">
   <div class="container d-flex justify-content-center">
     <h1 class="fs-1 font-monospace"><%= @list.name %>!</h1>
   </div>
@@ -50,6 +50,6 @@
   </div>
 </div>
 <div class="container d-flex justify-content-end mb-5">
-  <%= link_to "Back to all lists", lists_path, class: "btn btn-dark text-light mt-3 p-2 ms-1" %>
+  <%= link_to "Back to all lists", root_path, class: "btn btn-dark text-light mt-3 p-2 ms-1" %>
   <%# <%= link_to "Delete bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light mt-3 p-2 ms-1" %>
 </div>
