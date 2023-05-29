@@ -1,6 +1,6 @@
 <div class="navbar-lewagon d-flex justify-content-space-between align-items-center bg-dark">
   <h1 class="ms-3 p-2 fs-2 text-light"><%= @list.name %> List</h1>
-  <%= link_to "All lists", lists_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
+  <%= link_to "All lists", root_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
 </div>
 <div class="banner">
   <div class="container d-flex justify-content-center">
@@ -10,7 +10,7 @@
 <div class="container d-flex justify-content-evenly">
   <div class="card mb-3">
     <div class="card-body bg-dark">
-      <h2 class="card-title mb-4 text-light"><%= @list.name %></h2>
+      <h2 class="card-title mb-2 text-light"><%= @list.name %></h2>
         <% @list.bookmarks.each do |bookmark| %>
           <div class="bg-light mb-3 p-2">
             <div class="d-flex inline align-items-center p-2 mb-3">
@@ -38,8 +38,8 @@
       <div class="col-10 col-sm-6">
         <h1 class="border-bottom p-3">Add the name of<strong> your</strong> Bookmark</h1>
         <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.input :comment %>
         <%= f.association :movie %>
+        <%= f.input :comment %>
         <%= f.submit %>
          <% end %>
         <div>

@@ -1,0 +1,26 @@
+.banner {
+  display: flex;
+  background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWUlMjBnZW5yZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+  height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  h1 {
+    color: white;
+    }
+}
+
+.show-banner {
+  display: flex;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 50px;
+}
