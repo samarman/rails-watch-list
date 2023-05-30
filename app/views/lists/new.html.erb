@@ -9,6 +9,7 @@
         <h1 class="border-bottom p-3">Add the name of<strong> your</strong> list</h1>
         <%= simple_form_for(@list) do |f| %>
         <%= f.input :name %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit class: "btn btn-success"%>
          <% end %>
         <div>
