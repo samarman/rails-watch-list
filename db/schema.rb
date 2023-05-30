@@ -10,9 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_23_214259) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_182508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name"
+    t.string "record_type"
+    t.bigint "record_id"
+    t.bigint "blob_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["name"], name: "index_active_storage_attachments_on_name"
+    t.index ["record_id"], name: "index_active_storage_attachments_on_record_id"
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key"
+    t.string "filename"
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name"
+    t.bigint "byte_size"
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key"
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id"
+    t.string "variation_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_variant_records_on_blob_id"
+    t.index ["variation_digest"], name: "index_active_storage_variant_records_on_variation_digest"
+  end
 
   create_table "bookmarks", force: :cascade do |t|
     t.text "comment"
